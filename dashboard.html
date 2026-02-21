@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Дашборд</title>
+
+  <link rel="stylesheet" href="./style_input_1.css" />
+</head>
+<body>
+  <header class="header header--app">
+    <div class="brand">
+      <img class="brand__icon" src="./images/main_icon.svg" alt="">
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- Верхняя панель фильтров/действий (как в index_1.html) -->
+    <section class="topbar">
+      <div class="topbar__filters">
+        <select class="topbar__select" name="company">
+          <option selected disabled>Компания</option>
+          <option>Компания 1</option>
+          <option>Компания 2</option>
+        </select>
+
+        <select class="topbar__select" name="period">
+          <option selected disabled>Период</option>
+          <option>Сегодня</option>
+          <option>Неделя</option>
+          <option>Месяц</option>
+        </select>
+
+        <select class="topbar__select" name="shift">
+          <option selected disabled>Смена</option>
+          <option>День</option>
+          <option>Ночь</option>
+        </select>
+
+        <select class="topbar__select" name="tariff">
+          <option selected disabled>Тариф</option>
+          <option>Тариф A</option>
+          <option>Тариф B</option>
+          <option>Тариф C</option>
+        </select>
+
+        <select class="topbar__select" name="role">
+          <option selected disabled>Роль</option>
+          <option>ТСД</option>
+          <option>Инвентаризация</option>
+          <option>Маршрут</option>
+          <option>Леруа</option>
+          <option>Обучение</option>
+          <option>Сортировка</option>
+          <option>Проверка</option>
+          <option>Стикеровка</option>
+          <option>Контейнер</option>
+          <option>Пресс</option>
+          <option>Уборка</option>
+        </select>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="topbar__btn" type="button">Добавить факт</button>
+        <button class="topbar__btn" type="button">Создать отчет</button>
+        <button class="topbar__btn" type="button">Добавить тариф</button>
+      </div>
+    </section>
+
+    <section class="layout">
+      <!-- Левое меню (как в index_1.html) -->
+      <aside class="sidebar">
+        <div class="sidebar__block">
+          <div class="sidebar__title">Список страниц</div>
+
+          <nav class="sidebar__nav">
+            <a class="sidebar__link white" href="./shifts.html">Смены/выходы</a>
+            <a class="sidebar__link white" href="./manual.html">Ручной ввод</a>
+            <a class="sidebar__link white" href="./tariffs.html">Тарифы</a>
+            <a class="sidebar__link white" href="./reports.html">Отчеты</a>
+            <a class="sidebar__link white" href="./companies.html">Компании</a>
+            <a class="sidebar__link white" href="./settings.html">Настройки</a>
+          </nav>
+        </div>
+
+        <div class="sidebar__block sidebar__block--events">
+          <div class="sidebar__title">Лента событий</div>
+
+          <div class="events">
+            <div class="event"><div class="event__text">Изменение тарифа</div></div>
+            <div class="event"><div class="event__text">Новая компания</div></div>
+            <div class="event"><div class="event__text">Входящие данные</div></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Правая рабочая область -->
+      <section class="content" aria-label="Дашборд">
+        <div class="dash">
+          <!-- Верхние заголовки -->
+          <div class="dash__head">
+            <div class="dash__tab dash__tab--active">Дашборд</div>
+            <div class="dash__tab">Итого за месяц</div>
+            <div class="dash__tab">Итого за день</div>
+          </div>
+
+          <!-- Табличный блок (как на макете: 5 строк) -->
+          <div class="dash__table">
+            <div class="dash__row dash__row--header">
+              <div class="dash__cell">Компания 1</div>
+              <div class="dash__cell">Тариф</div>
+              <div class="dash__cell">Дата</div>
+              <div class="dash__cell">Смена</div>
+              <div class="dash__cell">Сумма сегодня</div>
+            </div>
+
+            <div class="dash__row">
+              <div class="dash__cell">Компания 2</div>
+              <div class="dash__cell">Тариф</div>
+              <div class="dash__cell">Дата</div>
+              <div class="dash__cell">Смена</div>
+              <div class="dash__cell">Сумма сегодня</div>
+            </div>
+
+            <div class="dash__row">
+              <div class="dash__cell">Компания 3</div>
+              <div class="dash__cell">Тариф</div>
+              <div class="dash__cell">Дата</div>
+              <div class="dash__cell">Смена</div>
+              <div class="dash__cell">Сумма сегодня</div>
+            </div>
+
+            <div class="dash__row">
+              <div class="dash__cell">Компания 4</div>
+              <div class="dash__cell">Тариф</div>
+              <div class="dash__cell">Дата</div>
+              <div class="dash__cell">Смена</div>
+              <div class="dash__cell">Сумма сегодня</div>
+            </div>
+
+            <div class="dash__row">
+              <div class="dash__cell">Компания 5</div>
+              <div class="dash__cell">Тариф</div>
+              <div class="dash__cell">Дата</div>
+              <div class="dash__cell">Смена</div>
+              <div class="dash__cell">Сумма сегодня</div>
+            </div>
+          </div>
+
+          <!-- 3 графика-заглушки -->
+          <div class="dash__charts">
+            <div class="chart">
+              <div class="chart__title">График стоимости персонала за выбранный период (Сумма - дни/месяца)</div>
+              <div class="chart__body"></div>
+            </div>
+
+            <div class="chart">
+              <div class="chart__title">График суммы сборки за выбранный период (Сумма - дни/месяца)</div>
+              <div class="chart__body"></div>
+            </div>
+
+            <div class="chart">
+              <div class="chart__title">График суммы продаж за выбранный период (Сумма - дни/месяца)</div>
+              <div class="chart__body"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

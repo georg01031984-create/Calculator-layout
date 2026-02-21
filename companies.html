@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Компании</title>
+
+  <link rel="stylesheet" href="./style_input_1.css" />
+</head>
+<body>
+  <header class="header header--app">
+    <div class="brand">
+      <img class="brand__icon" src="./images/main_icon.svg" alt="">
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- Верхняя панель фильтров/действий -->
+    <section class="topbar">
+      <div class="topbar__filters">
+        <select class="topbar__select" name="company">
+          <option selected disabled>Компания</option>
+          <option>Компания 1</option>
+          <option>Компания 2</option>
+        </select>
+
+        <select class="topbar__select" name="period">
+          <option selected disabled>Период</option>
+          <option>Сегодня</option>
+          <option>Месяц</option>
+          <option>Квартал</option>
+          <option>Год</option>
+          <option>Интервал</option>
+        </select>
+
+        <select class="topbar__select" name="shift">
+          <option selected disabled>Смена</option>
+          <option>День</option>
+          <option>Ночь</option>
+        </select>
+
+        <select class="topbar__select" name="tariff">
+          <option selected disabled>Тариф</option>
+          <option>Тариф A</option>
+          <option>Тариф B</option>
+          <option>Тариф C</option>
+        </select>
+
+        <select class="topbar__select" name="role">
+          <option selected disabled>Роль</option>
+          <option>ТСД</option>
+          <option>Инвентаризация</option>
+          <option>Маршрут</option>
+          <option>Леруа</option>
+          <option>Обучение</option>
+          <option>Сортировка</option>
+          <option>Проверка</option>
+          <option>Стикеровка</option>
+          <option>Контейнер</option>
+          <option>Пресс</option>
+          <option>Уборка</option>
+        </select>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="topbar__btn" type="button">Добавить факт</button>
+        <button class="topbar__btn" type="button">Создать отчет</button>
+        <button class="topbar__btn" type="button">Добавить тариф</button>
+      </div>
+    </section>
+
+    <section class="layout">
+      <aside class="sidebar">
+        <div class="sidebar__block">
+          <div class="sidebar__title">Список страниц</div>
+
+          <nav class="sidebar__nav">
+            <a class="sidebar__link white" href="./dashboard.html">Дашборд</a>
+            <a class="sidebar__link white" href="./shifts.html">Смены/выходы</a>
+            <a class="sidebar__link white" href="./manual.html">Ручной ввод</a>
+            <a class="sidebar__link white" href="./tariffs.html">Тарифы</a>
+            <a class="sidebar__link white" href="./reports.html">Отчеты</a>
+            <a class="sidebar__link white is-active" href="./companies.html">Компании</a>
+            <a class="sidebar__link white" href="./settings.html">Настройки</a>
+          </nav>
+        </div>
+
+        <div class="sidebar__block sidebar__block--events">
+          <div class="sidebar__title">Лента событий</div>
+
+          <div class="events">
+            <div class="event"><div class="event__text">Изменение тарифа</div></div>
+            <div class="event"><div class="event__text">Новая компания</div></div>
+            <div class="event"><div class="event__text">Входящие данные</div></div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="content" aria-label="Список компаний">
+        <div class="companies">
+          <div class="companies__title">Список компаний</div>
+
+          <div class="companies__table">
+            <!-- Заголовки -->
+            <div class="crow crow--head">
+              <div class="ccell ccell--head">Название</div>
+              <div class="ccell ccell--head">Основная</div>
+              <div class="ccell ccell--head">Тарифы</div>
+              <div class="ccell ccell--head">Контакт</div>
+              <div class="ccell ccell--head">Телефон</div>
+              <div class="ccell ccell--head">E-mail</div>
+              <div class="ccell ccell--head">Дата</div>
+              <div class="ccell ccell--head">Комментарий</div>
+            </div>
+
+            <!-- Тело таблицы -->
+            <div class="companies__body" id="companiesBody">
+              <!-- Строки добавляются JS (но стартовая нужна) -->
+              <div class="crow" data-row>
+                <input class="cinput" type="text" placeholder="" data-field="name">
+                <label class="cchk">
+                  <input class="cchk__input" type="checkbox" data-field="main">
+                  <span class="cchk__cell"></span>
+                </label>
+                <input class="cinput" type="text" placeholder="" data-field="tariffs">
+                <input class="cinput" type="text" placeholder="" data-field="contact">
+                <input class="cinput" type="text" placeholder="" data-field="phone">
+                <input class="cinput" type="text" placeholder="" data-field="email">
+                <input class="cinput" type="text" placeholder="" data-field="date">
+                <input class="cinput" type="text" placeholder="" data-field="comment">
+              </div>
+
+              <!-- несколько пустых строк как в макете -->
+              <div class="crow" data-row>
+                <input class="cinput" type="text" data-field="name">
+                <label class="cchk"><input class="cchk__input" type="checkbox" data-field="main"><span class="cchk__cell"></span></label>
+                <input class="cinput" type="text" data-field="tariffs">
+                <input class="cinput" type="text" data-field="contact">
+                <input class="cinput" type="text" data-field="phone">
+                <input class="cinput" type="text" data-field="email">
+                <input class="cinput" type="text" data-field="date">
+                <input class="cinput" type="text" data-field="comment">
+              </div>
+
+              <div class="crow" data-row>
+                <input class="cinput" type="text" data-field="name">
+                <label class="cchk"><input class="cchk__input" type="checkbox" data-field="main"><span class="cchk__cell"></span></label>
+                <input class="cinput" type="text" data-field="tariffs">
+                <input class="cinput" type="text" data-field="contact">
+                <input class="cinput" type="text" data-field="phone">
+                <input class="cinput" type="text" data-field="email">
+                <input class="cinput" type="text" data-field="date">
+                <input class="cinput" type="text" data-field="comment">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          // Добавляет пустую строку "сверху" когда верхняя строка полностью заполнена
+          (function () {
+            const body = document.getElementById("companiesBody");
+
+            function createEmptyRow() {
+              const row = document.createElement("div");
+              row.className = "crow";
+              row.setAttribute("data-row", "");
+
+              row.innerHTML = `
+                <input class="cinput" type="text" data-field="name">
+                <label class="cchk">
+                  <input class="cchk__input" type="checkbox" data-field="main">
+                  <span class="cchk__cell"></span>
+                </label>
+                <input class="cinput" type="text" data-field="tariffs">
+                <input class="cinput" type="text" data-field="contact">
+                <input class="cinput" type="text" data-field="phone">
+                <input class="cinput" type="text" data-field="email">
+                <input class="cinput" type="text" data-field="date">
+                <input class="cinput" type="text" data-field="comment">
+              `;
+              return row;
+            }
+
+            function rowIsFilled(row) {
+              // считаем заполненными только input'ы (checkbox — опционально)
+              const inputs = Array.from(row.querySelectorAll('input.cinput'));
+              return inputs.length > 0 && inputs.every(i => i.value.trim().length > 0);
+            }
+
+            function ensureTopRow() {
+              const rows = body.querySelectorAll('[data-row]');
+              const topRow = rows[0];
+              if (!topRow) return;
+
+              if (rowIsFilled(topRow)) {
+                body.insertBefore(createEmptyRow(), topRow);
+              }
+            }
+
+            body.addEventListener("input", (e) => {
+              if (e.target && e.target.classList.contains("cinput")) {
+                ensureTopRow();
+              }
+            });
+          })();
+        </script>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

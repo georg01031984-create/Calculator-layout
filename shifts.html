@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Журнал выхода</title>
+
+  <link rel="stylesheet" href="./style_input_1.css" />
+</head>
+<body>
+  <header class="header header--app">
+    <div class="brand">
+      <img class="brand__icon" src="./images/main_icon.svg" alt="">
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- Верхняя панель фильтров/действий -->
+    <section class="topbar">
+      <div class="topbar__filters">
+        <select class="topbar__select" name="company">
+          <option selected disabled>Компания</option>
+          <option>Компания 1</option>
+          <option>Компания 2</option>
+        </select>
+
+        <select class="topbar__select" name="period">
+          <option selected disabled>Период</option>
+          <option>Сегодня</option>
+          <option>Месяц</option>
+          <option>Год</option>
+          <option>Интервал</option>
+        </select>
+
+        <select class="topbar__select" name="shift">
+          <option selected disabled>Смена</option>
+          <option>День</option>
+          <option>Ночь</option>
+        </select>
+
+        <select class="topbar__select" name="tariff">
+          <option selected disabled>Тариф</option>
+          <option>Тариф A</option>
+          <option>Тариф B</option>
+          <option>Тариф C</option>
+        </select>
+
+        <select class="topbar__select" name="role">
+          <option selected disabled>Роль</option>
+          <option>ТСД</option>
+          <option>Инвентаризация</option>
+          <option>Маршрут</option>
+          <option>Леруа</option>
+          <option>Обучение</option>
+          <option>Сортировка</option>
+          <option>Проверка</option>
+          <option>Стикеровка</option>
+          <option>Контейнер</option>
+          <option>Пресс</option>
+          <option>Уборка</option>
+        </select>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="topbar__btn" type="button">Добавить факт</button>
+        <button class="topbar__btn" type="button">Создать отчет</button>
+        <button class="topbar__btn" type="button">Добавить тариф</button>
+      </div>
+    </section>
+
+    <section class="layout">
+      <!-- Левое меню -->
+      <aside class="sidebar">
+        <div class="sidebar__block">
+          <div class="sidebar__title">Список страниц</div>
+
+          <nav class="sidebar__nav">
+            <a class="sidebar__link white" href="./dashboard.html">Дашборд</a>
+            <a class="sidebar__link white" href="./manual.html">Ручной ввод</a>
+            <a class="sidebar__link white" href="./tariffs.html">Тарифы</a>
+            <a class="sidebar__link white" href="./reports.html">Отчеты</a>
+            <a class="sidebar__link white" href="./companies.html">Компании</a>
+            <a class="sidebar__link white" href="./settings.html">Настройки</a>
+          </nav>
+        </div>
+
+        <div class="sidebar__block sidebar__block--events">
+          <div class="sidebar__title">Лента событий</div>
+
+          <div class="events">
+            <div class="event"><div class="event__text">Изменение тарифа</div></div>
+            <div class="event"><div class="event__text">Новая компания</div></div>
+            <div class="event"><div class="event__text">Входящие данные</div></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Правая рабочая область -->
+      <section class="content" aria-label="Журнал выхода">
+        <div class="shifts">
+          <div class="shifts__title">Журнал Выхода</div>
+
+          <div class="shifts__grid">
+            <!-- Заголовки колонок -->
+            <div class="srow srow--head">
+              <div class="scell">Дата</div>
+              <div class="scell">Смена</div>
+              <div class="scell">Компания</div>
+              <div class="scell">Роль</div>
+              <div class="scell">Количество</div>
+              <div class="scell">Часы</div>
+              <div class="scell">Тариф/час</div>
+              <div class="scell">Стоимость</div>
+              <div class="scell">Комментарий</div>
+            </div>
+
+            <!-- Строки (заглушки) -->
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+            <div class="srow">
+              <div class="scell">Дата</div><div class="scell">Смена</div><div class="scell">Компания</div><div class="scell">Роль</div>
+              <div class="scell">Количество</div><div class="scell">Часы</div><div class="scell">Тариф/час</div><div class="scell">Стоимость</div><div class="scell">Комментарий</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

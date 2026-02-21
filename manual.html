@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ручной ввод</title>
+
+  <link rel="stylesheet" href="./style_input_1.css" />
+</head>
+<body>
+  <header class="header header--app">
+    <div class="brand">
+      <img class="brand__icon" src="./images/main_icon.svg" alt="">
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- Верхняя панель фильтров/действий (оставляем как в остальных) -->
+    <section class="topbar">
+      <div class="topbar__filters">
+        <select class="topbar__select" name="company_filter">
+          <option selected disabled>Компания</option>
+          <option>Компания 1</option>
+          <option>Компания 2</option>
+        </select>
+
+        <select class="topbar__select" name="period">
+          <option selected disabled>Период</option>
+          <option>Сегодня</option>
+          <option>Месяц</option>
+          <option>Квартал</option>
+          <option>Год</option>
+          <option>Интервал</option>
+        </select>
+
+        <select class="topbar__select" name="shift_filter">
+          <option selected disabled>Смена</option>
+          <option>День</option>
+          <option>Ночь</option>
+        </select>
+
+        <select class="topbar__select" name="tariff">
+          <option selected disabled>Тариф</option>
+          <option>Тариф A</option>
+          <option>Тариф B</option>
+          <option>Тариф C</option>
+        </select>
+
+        <select class="topbar__select" name="role">
+          <option selected disabled>Роль</option>
+          <option>ТСД</option>
+          <option>Инвентаризация</option>
+          <option>Маршрут</option>
+          <option>Леруа</option>
+          <option>Обучение</option>
+          <option>Сортировка</option>
+          <option>Проверка</option>
+          <option>Стикеровка</option>
+          <option>Контейнер</option>
+          <option>Пресс</option>
+          <option>Уборка</option>
+        </select>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="topbar__btn" type="button">Добавить факт</button>
+        <button class="topbar__btn" type="button">Создать отчет</button>
+        <button class="topbar__btn" type="button">Добавить тариф</button>
+      </div>
+    </section>
+
+    <section class="layout">
+      <!-- Левое меню -->
+      <aside class="sidebar">
+        <div class="sidebar__block">
+          <div class="sidebar__title">Список страниц</div>
+
+          <nav class="sidebar__nav">
+            <a class="sidebar__link" href="./dashboard.html">Дашборд</a>
+            <a class="sidebar__link" href="./shifts.html">Смены/выходы</a>
+            <a class="sidebar__link" href="./tariffs.html">Тарифы</a>
+            <a class="sidebar__link" href="./reports.html">Отчеты</a>
+            <a class="sidebar__link" href="./companies.html">Компании</a>
+            <a class="sidebar__link" href="./settings.html">Настройки</a>
+          </nav>
+        </div>
+
+        <div class="sidebar__block sidebar__block--events">
+          <div class="sidebar__title">Лента событий</div>
+
+          <div class="events">
+            <div class="event"><div class="event__text">Изменение тарифа</div></div>
+            <div class="event"><div class="event__text">Новая компания</div></div>
+            <div class="event"><div class="event__text">Входящие данные</div></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Правая рабочая область -->
+      <section class="content" aria-label="Ручной ввод">
+        <div class="manual">
+  <div class="shifts__title">Ручной ввод</div>
+
+  <!-- 5 полей в одну строку -->
+  <div class="manual__top">
+    <div class="mfield">
+      <div class="mfield__label">Дата</div>
+      <input class="mfield__input" type="text" name="date">
+    </div>
+
+    <div class="mfield">
+      <div class="mfield__label">Компания</div>
+      <input class="mfield__input" type="text" name="company">
+    </div>
+
+    <div class="mfield">
+      <div class="mfield__label">Роль</div>
+      <select class="mfield__input" name="role" required>
+        <option value="" selected disabled>Выберите</option>
+        <option>ТСД</option>
+        <option>Маршрут</option>
+        <option>Инвентаризация</option>
+        <option>Леруа</option>
+        <option>Обучение</option>
+        <option>Сортировка</option>
+        <option>Проверка</option>
+        <option>Стикеровка</option>
+        <option>Контейнер</option>
+        <option>Пресс</option>
+        <option>Уборка</option>
+      </select>
+    </div>
+
+    <div class="mfield">
+      <div class="mfield__label">Смена</div>
+      <select class="mfield__input" name="shift" required>
+        <option value="" selected disabled>Выберите</option>
+        <option>День</option>
+        <option>Ночь</option>
+      </select>
+    </div>
+
+    <div class="mfield mfield--wide">
+      <div class="mfield__label">Комментарий</div>
+      <input class="mfield__input" type="text" name="comment">
+    </div>
+  </div>
+
+  <!-- Роли: 11 заголовков и 11 инпутов -->
+  <div class="roles">
+    <div class="roles__head">
+      <div class="rcol">ТСД</div>
+      <div class="rcol">Маршрут</div>
+      <div class="rcol">Инвентаризация</div>
+      <div class="rcol">Леруа</div>
+      <div class="rcol">Обучение</div>
+      <div class="rcol">Сортировка</div>
+      <div class="rcol">Проверка</div>
+      <div class="rcol">Стикеровка</div>
+      <div class="rcol">Контейнер</div>
+      <div class="rcol">Пресс</div>
+      <div class="rcol">Уборка</div>
+    </div>
+
+    <div class="roles__inputs">
+      <input class="rinput" name="tcd">
+      <input class="rinput" name="route">
+      <input class="rinput" name="inventory">
+      <input class="rinput" name="leroy">
+      <input class="rinput" name="training">
+      <input class="rinput" name="sorting">
+      <input class="rinput" name="check">
+      <input class="rinput" name="sticker">
+      <input class="rinput" name="container">
+      <input class="rinput" name="press">
+      <input class="rinput" name="clean">
+    </div>
+  </div>
+
+  <div class="manual__actions">
+    <button class="save-btn" type="button">Сохранить</button>
+  </div>
+
+  <div class="manual__bottom">
+    <div class="pie">
+      <div class="pie__title">Круговая диаграмма по ролям</div>
+      <div class="pie__circle"></div>
+    </div>
+
+    <div class="legend">
+      <div class="legend__item">ТСД</div>
+      <div class="legend__item">Маршрут</div>
+      <div class="legend__item">Инвентаризация</div>
+      <div class="legend__item">Леруа</div>
+      <div class="legend__item">Обучение</div>
+      <div class="legend__item">Сортировка</div>
+      <div class="legend__item">Проверка</div>
+      <div class="legend__item">Стикеровка</div>
+      <div class="legend__item">Контейнер</div>
+      <div class="legend__item">Пресс</div>
+      <div class="legend__item">Уборка</div>
+    </div>
+  </div>
+</div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

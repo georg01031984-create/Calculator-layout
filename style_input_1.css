@@ -1,0 +1,1236 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+.header{
+  position: relative;
+}
+
+.home-btn{
+  position: absolute;
+  top: 10px;
+  right: 14px;   /* было left: 14px; */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #3a3a3a;
+  background: #fff;
+
+  font-size: clamp(11px, 3vw, 13px);
+  text-decoration: none;
+  color: #2b2b2b;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+.home-btn:active{
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2");
+  font-weight: 100 900; /* диапазон для variable font */
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body{
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.header{ padding: 10px 14px; }
+.brand{ display: flex; align-items: center; gap: 10px; }
+
+.brand__icon{
+  display: block;
+  width: min(322px, 90vw);
+  height: auto;          /* сохраняет пропорции */
+  max-height: 94px;      /* чтобы не раздувалось по высоте */
+}
+
+/* Центрирование + безопасные отступы */
+.main{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px; /* чтобы на узких экранах не прилипало к краям */
+}
+
+/* Форма тянется, но с лимитами */
+.form{
+  width: min(280px, 92vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Поля */
+.input{
+  width: min(190px, 88vw);
+  border: none;
+  border-bottom: 1px solid #d8dde6;
+  padding: 6px 2px;
+  outline: none;
+  font-size: clamp(12px, 3.2vw, 14px); /* чуть увеличится/уменьшится */
+}
+
+/* Кнопка */
+.btn{
+  display: flex;
+  align-items: center;      /* по вертикали */
+  justify-content: center;  /* по горизонтали */
+  width: min(190px, 70vw);
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid #3a3a3a;
+  background: #A1B9F6;
+  font-size: clamp(11px, 3vw, 13px);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.btn:active{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* Ссылка */
+.link{
+  font-size: clamp(11px, 3vw, 13px);
+  color: #2d66ff;
+  text-decoration: none;
+}
+.link:hover{ text-decoration: underline; }
+
+
+.blue{
+    background-color: #A1B9F6;
+    border: 1px #A1B9F6 solid;
+    color: #FBFBFB;
+    transition: 500ms;
+}
+ 
+.white{
+    background-color: #ECF1FD;
+    border: 1px #ECF1FD solid;
+    color: #686868;
+    transition: 500ms;
+}
+
+.blue:hover{
+    background-color: #ECF1FD;
+    border: 1px #ECF1FD solid;
+    color: #686868;
+    transition: 500ms;
+}
+
+.white:hover{
+    background-color: #A1B9F6;
+    border: 1px #A1B9F6 solid;
+    color: #FBFBFB;
+    transition: 500ms;
+}
+
+/* ====== index_1.html (layout) ====== */
+
+.header--app .brand__title{
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Общая область приложения */
+.app{
+  width: 100%;
+  padding: 10px 12px 16px;
+}
+
+/* Верхний ряд: фильтры + действия */
+.topbar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 8px 0 10px;
+  border-top: 1px dotted #9aa1aa;
+  border-bottom: 1px dotted #9aa1aa;
+}
+
+.topbar__filters,
+.topbar__actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Выпадающие списки (прямоугольники A1B9F6) */
+.topbar__select{
+  appearance: none;
+  -webkit-appearance: none;
+
+  height: 28px;
+  padding: 0 12px;
+
+  border: 1px solid #3a3a3a;
+  background: #A1B9F6;
+  border-radius: 2px;
+
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Кнопки справа (такой же стиль) */
+.topbar__btn{
+  height: 28px;
+  padding: 0 12px;
+
+  border: 1px solid #3a3a3a;
+  background: #A1B9F6;
+  border-radius: 2px;
+
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.topbar__btn:active{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* Основная компоновка: слева меню, справа контент */
+.layout{
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Левый сайдбар */
+.sidebar{
+  width: 185px;
+  flex: 0 0 185px;
+
+  border: 1px dotted #9aa1aa;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar__block{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar__title{
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #3a3a3a;
+  background: #A1B9F6;
+  font-size: 12px;
+}
+
+.sidebar__nav{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Кнопки-ссылки слева (пилюли) */
+.sidebar__link{
+  height: 24px;
+  padding: 0 10px;
+
+  border: 1px solid #3a3a3a;
+  border-radius: 999px;
+  background: #fff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 12px;
+  text-decoration: none;
+  color: #2b2b2b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.sidebar__link:hover{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* Лента событий */
+.events{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.event{
+  border: 1px solid #3a3a3a;
+  background: #fff;
+  min-height: 132px;
+  padding: 8px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.event__text{
+  font-size: 12px;
+}
+
+/* приложение занимает высоту экрана */
+.app{
+  min-height: calc(100vh - 60px); /* 60px — примерная высота header, при необходимости подправь */
+  display: flex;
+  flex-direction: column;
+}
+
+/* layout растягивается по высоте и даёт высоту контенту */
+.layout{
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+
+/* правая область занимает всю доступную высоту */
+.content{
+  flex: 1;
+  min-height: 0;           /* важно, чтобы flex-элемент мог сжиматься */
+  border: 1px dotted #9aa1aa;
+  background: #fff;
+}
+.content{
+  overflow: auto;
+}
+
+/* Адаптив: на узких экранах сайдбар уходит вверх */
+@media (max-width: 780px){
+  .layout{
+    flex-direction: column;
+  }
+  .sidebar{
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  .content{
+    min-height: 360px;
+  }
+}
+
+/* ====== dashboard.html ====== */
+
+/* чтобы правая область могла скроллиться внутри себя */
+.content{
+  overflow: auto;
+}
+
+/* внутренний контейнер дашборда */
+.dash{
+  padding: 10px;
+  min-width: 640px; /* чтобы таблица не ломалась; при узком экране появится горизонтальный скролл внутри .content */
+}
+
+/* Верхние вкладки */
+.dash__head{
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.dash__tab{
+  height: 26px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dash__tab--active{
+  background: #f0b233; /* как на макете (желтый) */
+}
+
+/* Табличный блок */
+.dash__table{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.dash__row{
+  display: grid;
+  grid-template-columns: 1fr 120px 120px 120px 1.2fr;
+  gap: 6px;
+}
+
+.dash__cell{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+}
+
+/* Графики-заглушки */
+.dash__charts{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chart{
+  border: 1px dotted #9aa1aa;
+  background: #fff;
+  min-height: 150px;
+  padding: 8px;
+}
+
+.chart__title{
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.chart__body{
+  height: 110px;
+  border-top: 1px dotted #9aa1aa;
+}
+
+/* ====== shifts.html ====== */
+
+.content{
+  overflow: auto; /* вертикальный скролл внутри правой области */
+}
+
+/* контейнер страницы */
+.shifts{
+  padding: 10px;
+  min-width: 840px; /* чтобы 9 колонок не ломались: при узком экране будет горизонтальный скролл */
+}
+
+/* желтый заголовок как на макете */
+.shifts__title{
+  height: 26px;
+  max-width: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #3a3a3a;
+  background: #f0b233;
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-bottom: 8px;
+}
+
+/* таблица */
+.shifts__grid{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* строка: 9 колонок */
+.srow{
+  display: grid;
+  grid-template-columns:
+    90px   /* Дата */
+    90px   /* Смена */
+    100px  /* Компания */
+    90px   /* Роль */
+    95px   /* Количество */
+    90px   /* Часы */
+    95px   /* Тариф/час */
+    95px   /* Стоимость */
+    1fr;   /* Комментарий */
+  gap: 6px;
+}
+
+.scell{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.srow--head .scell{
+  font-weight: 600;
+}
+
+/* ====== FIX manual.html layout (ПЕРЕБИТЬ ВСЕ СТАРЫЕ) ====== */
+
+/* контейнер: вертикально, секции не наезжают */
+.manual{
+  padding: 10px;
+  min-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* кнопка: отдельной строкой */
+.manual__actions{
+  display: flex;
+  justify-content: flex-start;
+  margin: 4px 0 6px;
+}
+
+/* низ: диаграмма + список — всегда ниже, с переносом */
+.manual__bottom{
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* блок диаграммы */
+.pie{
+  flex: 0 0 340px;   /* как в макете */
+  max-width: 340px;
+}
+
+/* сама “круглая диаграмма” */
+.pie__circle{
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: #d9d9d9;
+}
+
+/* блок списка ролей справа */
+.legend{
+  flex: 0 0 220px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* На узких экранах: диаграмма и список становятся в колонку */
+@media (max-width: 1100px){
+  .pie, .legend{
+    flex: 1 1 320px;
+    max-width: 100%;
+  }
+  .pie__circle{
+    width: min(320px, 70vw);
+    height: min(320px, 70vw);
+  }
+}
+
+/* FIX: верхние поля всегда в 5 колонок как в макете */
+.manual__top{
+  display: grid;
+  grid-template-columns: 110px 160px 160px 160px minmax(220px, 1fr);
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* FIX: чтобы select занимал ширину как input */
+.mfield__input{
+  width: 100%;
+}
+
+/* FIX: роли и инпуты совпадают по ширине */
+.roles__head,
+.roles__inputs{
+  display: grid;
+  grid-template-columns: repeat(11, minmax(90px, 1fr));
+  gap: 6px;
+  font-size: 14px;
+}
+
+.save-btn{
+  width: 260px;
+  height: 26px;
+
+  border: 1px solid #3a3a3a;
+  background: #2fbf90;
+  color: #0b1a14;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+
+}
+
+.save-btn:active{
+  transform: translateY(1px);
+}
+
+/* ====== tariffs.html ====== */
+
+.content{ overflow: auto; }
+
+.tariffs{
+  padding: 10px;
+  min-width: 920px; /* чтобы сетки не ломались; на узком экране появится горизонтальный скролл */
+}
+
+/* Заголовок справа (желтый) */
+.tariffs__title{
+  height: 26px;
+  width: 260px;
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #3a3a3a;
+  background: #f0b233;
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+/* Верх: две таблицы */
+.tariffs__top{
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.tblock{ flex: 0 0 auto; }
+
+/* Общие клетки-заголовки */
+.tcell{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tcell--label{
+  font-weight: 500;
+}
+
+/* Поля ввода */
+.tinput{
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #3a3a3a;
+  background: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+  width: 100%;
+}
+
+/* Сетка ролей: 3 колонки */
+.tgrid--roles{
+  display: grid;
+  grid-template-columns: 110px 110px 110px;
+  gap: 6px;
+}
+
+/* Сетка компаний: 2 колонки */
+.tgrid--companies{
+  display: grid;
+  grid-template-columns: 120px 120px;
+  gap: 6px;
+}
+
+/* Низ */
+.tariffs__bottom{
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Левые блоки изменений */
+.tchanges{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 620px;
+  min-width: 620px;
+}
+
+/* Сетка изменения (6 колонок) */
+.cgrid{
+  display: grid;
+  grid-template-columns: 110px 70px 70px 70px 70px 1fr;
+  gap: 6px;
+}
+
+/* Кнопки отмена/сохранить */
+.cactions{
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.cbtn{
+  height: 22px;
+  padding: 0 12px;
+  border: 1px solid #3a3a3a;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+
+}
+
+.cbtn--cancel{ background: #ff8080; }
+.cbtn--save{ background: #2fbf90; }
+
+.cbtn:active{   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18) }
+
+/* Правые блоки загрузки */
+.uploads{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 0 260px;
+}
+
+.upload{
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 6px;
+  align-items: start;
+}
+
+.ubtn{
+  height: 22px;
+  padding: 0 10px;
+  border: 0,5px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ubtn--title{
+  background: #f0b233;
+  grid-column: 1 / 2;
+}
+
+.ubtn--wide{
+  grid-column: 1 / -1; /* "Прикрепить письмо" на всю ширину как в макете */
+}
+.ubtn:active{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* ====== reports.html ====== */
+
+.content{ overflow: auto; }
+
+.reports{
+  padding: 10px;
+  min-width: 920px;
+}
+
+/* Заголовок */
+.reports__title{
+  height: 26px;
+  width: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #3a3a3a;
+  background: #f0b233;
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+/* 1) Фильтры (накладываемые select) */
+.rfilters{
+  margin-bottom: 14px;
+}
+
+.rfilters__grid{
+  width: 480px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  position: relative;
+}
+
+.rfilters__cell{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* select "лежит" в тех же ячейках */
+.rfilters__select{
+  height: 22px;
+  padding: 0 8px;
+
+  border: 1px solid #3a3a3a;
+  background: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+
+  z-index: 2; /* поверх серых заголовков */
+}
+
+/* 2) Отправка отчета */
+.rsend{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 200px;
+  gap: 18px;
+  align-items: end;
+
+  margin-bottom: 12px;
+}
+
+.rsend__input{
+  border: none;
+  border-bottom: 1px solid #d8dde6;
+  padding: 6px 2px;
+  font-size: 12px;
+  outline: none;
+  background: transparent;
+}
+
+/* Кнопка отправить (зелёная) */
+.rsend__btn{
+  height: 26px;
+  border: 1px solid #3a3a3a;
+  background: #2fbf90;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+.rsend__btn:active{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  transform: translateY(1px);
+}
+
+/* 3) Таблица со скроллом */
+.rtable{
+  border: 1px dotted #9aa1aa;
+  background: #fff;
+  padding: 8px;
+}
+
+.rtable__head{
+  display: grid;
+  grid-template-columns: 90px 90px 95px 90px 95px 90px 95px 95px 1fr;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.rtable__body{
+  max-height: 260px; /* чтобы появился скролл */
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rrow{
+  display: grid;
+  grid-template-columns: 90px 90px 95px 90px 95px 90px 95px 95px 1fr;
+  gap: 6px;
+}
+
+.rcell{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ====== Тени для кнопок в отчетах (дополнительно ко всем кнопкам) ====== */
+.reports button{
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+.reports button:active{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* ====== reports: filters v2 (Компания/Срез/Формат — заголовки) ====== */
+
+.rfilters__grid2{
+  width: 480px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+/* заголовки */
+.rfh{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* пустая "заглушка" как на макете (вместо заголовка) */
+.rfh--ghost{
+  color: transparent;
+}
+
+/* значения/выбор */
+.rfv{
+  height: 22px;
+  padding: 0 8px;
+
+  border: 1px solid #3a3a3a;
+  background: #fff;
+
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+/* PDF / XLSX как "ячейки" с чекбоксом */
+.rfchk{
+  position: relative;
+  display: block;
+  height: 22px;
+}
+
+/* прячем настоящий чекбокс */
+.rfchk__input{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* видимая ячейка */
+.rfchk__cell{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #fff;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* отметка состояния (маленький маркер справа) */
+.rfchk__cell::after{
+  content: "";
+  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #3a3a3a;
+  background: #fff;
+}
+
+/* когда включено — закрашиваем маркер */
+.rfchk__input:checked + .rfchk__cell::after{
+  background: #2fbf90;
+}
+
+/* фокус с клавиатуры */
+.rfchk__input:focus-visible + .rfchk__cell{
+  outline: 2px solid #b6c2ff;
+  outline-offset: 1px;
+}
+/* ====== companies.html ====== */
+
+.content{ overflow: auto; }
+
+.companies{
+  padding: 10px;
+  min-width: 980px;
+}
+
+/* Заголовок (желтый) */
+.companies__title{
+  height: 26px;
+  width: 280px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #3a3a3a;
+  background: #f0b233;
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+/* таблица */
+.companies__table{
+  border: 1px dotted #9aa1aa;
+  background: #fff;
+  padding: 8px;
+}
+
+.crow{
+  display: grid;
+  grid-template-columns: 120px 60px 120px 120px 120px 120px 120px 1fr;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.crow--head{
+  margin-bottom: 8px;
+}
+
+/* клетки-заголовки */
+.ccell{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cinput{
+  height: 22px;
+  padding: 0 8px;
+
+  border: 1px solid #3a3a3a;
+  background: #fff;
+
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+/* чекбокс как "ячейка" */
+.cchk{
+  position: relative;
+  height: 22px;
+  display: block;
+}
+
+.cchk__input{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.cchk__cell{
+  height: 22px;
+  border: 1px solid #3a3a3a;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cchk__cell::after{
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 1px solid #3a3a3a;
+  background: #fff;
+}
+
+.cchk__input:checked + .cchk__cell::after{
+  background: #2fbf90;
+}
+
+/* Тени для кнопок (как в reports) — если на странице появятся кнопки */
+.companies button{
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+.companies button:active{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ====== settings.html ====== */
+
+.content{ overflow: auto; }
+
+.settings{
+  padding: 10px;
+  min-width: 760px;
+}
+
+/* Заголовок */
+.settings__title{
+  height: 26px;
+  width: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #3a3a3a;
+  background: #f0b233;
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+
+/* Таблица пользователей */
+.settings__table{
+  width: 380px; /* как на макете — компактный блок слева */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.srow{
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  gap: 6px;
+}
+
+.scell{
+  height: 22px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #3a3a3a;
+  background: #e9edf3;
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Пустые поля для заполнения */
+.sinput{
+  height: 22px;
+  padding: 0 8px;
+
+  border: 1px solid #3a3a3a;
+  background: #fff;
+
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+/* Справочный текст */
+.settings__help{
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.help__title{
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.help__line{
+  margin-top: 2px;
+}

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Отчеты</title>
+
+  <link rel="stylesheet" href="./style_input_1.css" />
+</head>
+<body>
+  <header class="header header--app">
+    <div class="brand">
+      <img class="brand__icon" src="./images/main_icon.svg" alt="">
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- Верхняя панель фильтров/действий -->
+    <section class="topbar">
+      <div class="topbar__filters">
+        <select class="topbar__select" name="company">
+          <option selected disabled>Компания</option>
+          <option>Компания 1</option>
+          <option>Компания 2</option>
+        </select>
+
+        <select class="topbar__select" name="period">
+          <option selected disabled>Период</option>
+          <option>Сегодня</option>
+          <option>Месяц</option>
+          <option>Квартал</option>
+          <option>Год</option>
+          <option>Интервал</option>
+        </select>
+
+        <select class="topbar__select" name="shift">
+          <option selected disabled>Смена</option>
+          <option>День</option>
+          <option>Ночь</option>
+        </select>
+
+        <select class="topbar__select" name="tariff">
+          <option selected disabled>Тариф</option>
+          <option>Тариф A</option>
+          <option>Тариф B</option>
+          <option>Тариф C</option>
+        </select>
+
+        <select class="topbar__select" name="role">
+          <option selected disabled>Роль</option>
+          <option>ТСД</option>
+          <option>Инвентаризация</option>
+          <option>Маршрут</option>
+          <option>Леруа</option>
+          <option>Обучение</option>
+          <option>Сортировка</option>
+          <option>Проверка</option>
+          <option>Стикеровка</option>
+          <option>Контейнер</option>
+          <option>Пресс</option>
+          <option>Уборка</option>
+        </select>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="topbar__btn" type="button">Добавить факт</button>
+        <button class="topbar__btn" type="button">Создать отчет</button>
+        <button class="topbar__btn" type="button">Добавить тариф</button>
+      </div>
+    </section>
+
+    <!-- Основная сетка: слева меню, справа рабочая область -->
+    <section class="layout">
+      <aside class="sidebar">
+        <div class="sidebar__block">
+          <div class="sidebar__title">Список страниц</div>
+
+          <nav class="sidebar__nav">
+            <a class="sidebar__link white" href="./dashboard.html">Дашборд</a>
+            <a class="sidebar__link white" href="./shifts.html">Смены/выходы</a>
+            <a class="sidebar__link white" href="./manual.html">Ручной ввод</a>
+            <a class="sidebar__link white" href="./tariffs.html">Тарифы</a>
+            <a class="sidebar__link white" href="./companies.html">Компании</a>
+            <a class="sidebar__link white" href="./settings.html">Настройки</a>
+          </nav>
+        </div>
+
+        <div class="sidebar__block sidebar__block--events">
+          <div class="sidebar__title">Лента событий</div>
+
+          <div class="events">
+            <div class="event"><div class="event__text">Изменение тарифа</div></div>
+            <div class="event"><div class="event__text">Новая компания</div></div>
+            <div class="event"><div class="event__text">Входящие данные</div></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Правая рабочая область -->
+      <section class="content" aria-label="Отчеты">
+        <div class="reports">
+          <div class="reports__title">Отчеты</div>
+
+          <!-- 1) Накладываемые фильтры -->
+<div class="rfilters">
+  <div class="rfilters__grid2">
+    <!-- строка 1 -->
+    <div class="rfh">Компания</div>
+    <select class="rfv" name="r_company">
+      <option selected disabled>Выберите</option>
+      <option>Компания 1</option>
+      <option>Компания 2</option>
+    </select>
+
+    <div class="rfh rfh--ghost"></div>
+    <select class="rfv" name="r_months">
+      <option selected disabled>Месяцы</option>
+      <option>1</option>
+      <option>3</option>
+      <option>6</option>
+      <option>12</option>
+    </select>
+
+    <!-- строка 2 -->
+    <div class="rfh">Срез</div>
+    <select class="rfv" name="r_days">
+      <option selected disabled>Дни</option>
+      <option>1</option>
+      <option>7</option>
+      <option>14</option>
+      <option>30</option>
+    </select>
+
+    <select class="rfv" name="r_roles">
+      <option selected disabled>По ролям</option>
+      <option>Да</option>
+      <option>Нет</option>
+    </select>
+
+    <select class="rfv" name="r_companies">
+      <option selected disabled>По компаниям</option>
+      <option>Да</option>
+      <option>Нет</option>
+    </select>
+
+    <!-- строка 3 -->
+    <div class="rfh">Формат</div>
+    <select class="rfv" name="r_total">
+      <option selected disabled>Итого</option>
+      <option>За день</option>
+      <option>За месяц</option>
+    </select>
+
+<label class="rfchk">
+  <input class="rfchk__input" type="checkbox" name="pdf" checked>
+  <span class="rfchk__cell">PDF</span>
+</label>
+
+<label class="rfchk">
+  <input class="rfchk__input" type="checkbox" name="xlsx" checked>
+  <span class="rfchk__cell">XLSX</span>
+</label>
+  </div>
+</div>
+
+          <!-- 2) Отправка отчета -->
+          <div class="rsend">
+            <input class="rsend__input" type="email" placeholder="E-mail">
+            <input class="rsend__input" type="text" placeholder="Тема">
+            <input class="rsend__input" type="text" placeholder="Комментарий">
+            <button class="rsend__btn" type="button">Отправить</button>
+          </div>
+
+          <!-- 3) Состав отчета со скроллом -->
+          <div class="rtable">
+            <div class="rtable__head">
+              <div class="rcell">Дата</div>
+              <div class="rcell">Смена</div>
+              <div class="rcell">Компания</div>
+              <div class="rcell">Роль</div>
+              <div class="rcell">Количество</div>
+              <div class="rcell">Часы</div>
+              <div class="rcell">Тариф/час</div>
+              <div class="rcell">Стоимость</div>
+              <div class="rcell">Комментарий</div>
+            </div>
+
+            <div class="rtable__body">
+              <!-- строки-заглушки (для скролла) -->
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+              <div class="rrow">
+                <div class="rcell">Дата</div><div class="rcell">Смена</div><div class="rcell">Компания</div><div class="rcell">Роль</div>
+                <div class="rcell">Количество</div><div class="rcell">Часы</div><div class="rcell">Тариф/час</div><div class="rcell">Стоимость</div><div class="rcell">Комментарий</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
