@@ -698,11 +698,16 @@ select.mfield__input{ cursor: pointer; }
   flex: 0 0 260px;
 }
 
+
 .upload{
   display: grid;
   grid-template-columns: 110px 1fr;
   gap: 6px;
   align-items: start;
+}
+
+.upload{
+  margin-bottom: 30px; /* можно 8px, если нужно больше */
 }
 
 .ubtn{
